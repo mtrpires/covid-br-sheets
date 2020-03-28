@@ -21,25 +21,25 @@ Um resumo do que queremos fazer:
 ### Onde estão os dados?
 Acesse covid.saude.gov.br e abra as ferramentas de desenvolvedor. Qualquer navegador moderno possui opções parecidas. Para esse projeto, eu usei as do [Chrome](https://www.google.com/chrome/). Basta clicar com o botão direito em qualquer parte do site e escolher "`inspecionar`".
 
-[screenshot1]
+![](images/screenshot1.png)
 
 Clique na aba "`Network`" e recarregue o site (`ctrl + r` ou `command + r`). Selecione o filtro `XHR` (`XMLHttpRequest`). Esse filtro mostra as *requisições de dados* entre seu navegador e o servidor do site. Existem seis requisições e todas são relacionadas ao painel sobre a COVID-19 no Brasil. Os dados são transferidos no formato [`JSON`](https://pt.wikipedia.org/wiki/JSON):
 
-[screenshot2]
+![](images/screenshot2.png)
 
 Uma das coisas mais legais das ferramentas de desenvolvedor é que você pode gerar o comando que faz cada requisição de dados com muita facilidade. Com esse comando, vamos montar um script que baixa os dados e converter cada [string](https://pt.wikipedia.org/wiki/Cadeia_de_caracteres) `JSON` em linhas e colunas.
 
 Por exemplo, clique em `PortalAcumulo` e depois na aba "`Preview`". É possível visualizar os dados que alimentam a visualização "`Casos acumulados`":
 
-[screenshot3]
+![](images/screenshot3.png)
 Os dados que estão aqui...
 
-[screenshot4]
+![](images/screenshot4.png)
 ...alimentam essa visualização.
 
 É possível entender um pouco a estrutura dos dados da requisição `PortalAcumulo`.  Há 30 registros e vamos transformá-los em linhas na nossa planilha. Cada registro possui um grupo de marcadores que serão nossas colunas: `label` (vamos renomear para `data` na planilha), `qtd_confirmado`, `qtd_obito`, `createdAt`, `updatedAt`.  Vamos ignorar `objectId`. O mesmo vale para as outras requisições com algumas pequenas alterações dependendo do caso.
 
-[screenshot5]
+![](images/screenshot5.png)
 
 Clique com o botão direito em `PortalAcumulo` e selecione `Copy -> Copy as fetch`. Você terá na sua área de transferência:
 
@@ -68,6 +68,8 @@ Esse comando baixa os dados de cada requisição. Você pode aprender um pouco m
 
 Com a planilha em branco, vamos renomear a pasta para `Acumulo`. 
 
+![](images/screenshot6.png)
+
 #### Criando um script
 
 Nos bastidores do **Google Sheets** é possível adicionar scripts de programação para deixar a planilha ainda mais poderosa. A vantagem de usar o editor de scripts do **Google** é que você vai poder usar toda a infraestrutura de nuvem da empresa para rodar os projetos gratuitamente. 
@@ -78,11 +80,19 @@ A desvantagem de usar o editor de scripts do **Google** é que você vai precisa
 
 Clique em `Ferramentas` -> `Editor de script`. 
 
-Copie o conteúdo do arquivo [scraper.gs](https://github.com/mtrpires/covid-br-sheets/blob/master/scraper.gs) para o seu editor se você estiver criando uma planilha em branco. Se você fizer uma cópia da planilha original, o script será copiado também e estará lá assim que você abrir o editor a partir do arquivo copiado. Tente navegar pelo arquivo e pelos comentários para compreender o que cada bloco de código faz.
+![](images/screenshot7.png)
+
+Apague o que estiver no editor e copie o conteúdo do arquivo [scraper.gs](https://github.com/mtrpires/covid-br-sheets/blob/master/scraper.gs) para o seu editor se você estiver criando uma planilha em branco. Se você fizer uma cópia da planilha original, o script será copiado também e estará lá assim que você abrir o editor a partir do arquivo copiado. Tente navegar pelo arquivo e pelos comentários para compreender o que cada bloco de código faz. Essa é uma boa hora para salvar seu projeto (`Arquivo` -> `Salvar`).
+
+![](images/screenshot8.png)
 
 #### Agendar a execução do script
-Clique no ícone do relógio na barra de ferramentas. Na nova aba, clique no botão azul no canto inferior direito para adicionar uma nova tarefa. Vamos executar a função `isUpdated`uma vez por hora. Você também pode receber avisos por email caso a execução falhe. 
+Clique no ícone do relógio na barra de ferramentas. Na nova aba, clique no botão azul no canto inferior direito para adicionar uma nova tarefa. 
 
-[screenshot]
+![](images/screenshot9.png)
+
+Vamos executar a função `isUpdated`uma vez por hora. Você também pode receber avisos por email caso a execução falhe. Clique em salvar
+
+![](images/screenshot10.png)
 
 Pronto! Você pode fechar a planilha, desligar o computador e fazer outras coisas. O serviço vai executar o script automaticamente de hora em hora e executar as ações necessárias.
