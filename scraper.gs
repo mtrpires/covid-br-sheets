@@ -56,10 +56,8 @@ function main(){
       data = json.results[i];
       rows.push([data['label'], data['createdAt'], data['updatedAt'], data['qtd_confirmado'], data['qtd_obito']]);
     }
-    
-    dataRange = sheet.getRange(2, 1, rows.length, 5);
-    dataRange.setValues(rows);
-      
+    var dataRange = sheet.getRange(2, 1, rows.length, 5);
+    var dataRange.setValues(rows);
   }
   // Função que raspa os dados da requisição PortalAcumulo
   function scrapeAcumulo() {
@@ -72,10 +70,8 @@ function main(){
       data = json.results[i];
       rows.push([data['label'], data['createdAt'], data['updatedAt'], data['qtd_confirmado'], data['qtd_obito']]);
     }
-    
-    dataRange = sheet.getRange(2, 1, rows.length, 5);
-    dataRange.setValues(rows);
-      
+    var dataRange = sheet.getRange(2, 1, rows.length, 5);
+    var dataRange.setValues(rows);    
   }
   // Função que raspa os dados da requisição PortalSemana
   function scrapeSemana() {
@@ -88,10 +84,8 @@ function main(){
       data = json.results[i];
       rows.push([data['label'], data['createdAt'], data['updatedAt'], data['qtd_confirmado'], data['qtd_obito']]);
     }
-    
-    dataRange = sheet.getRange(2, 1, rows.length, 5);
-    dataRange.setValues(rows);
-      
+    var dataRange = sheet.getRange(2, 1, rows.length, 5);
+    var dataRange.setValues(rows); 
   }
   // Função que raspa os dados da requisição PortalRegiao
   function scrapeRegiao() {
@@ -105,10 +99,8 @@ function main(){
       data = json.results[i];
       rows.push([data['nome'], data['percent'], data['qtd'], data['createdAt'], data['updatedAt']]);
     }
-    
-    dataRange = sheet.getRange(lastRow+1, 1, rows.length, 5);
-    dataRange.setValues(rows);
-      
+    var dataRange = sheet.getRange(lastRow+1, 1, rows.length, 5);
+    var dataRange.setValues(rows);  
   };
   // Função que raspa os dados da requisição PortalGeral
   function scrapeGeral() {
@@ -121,10 +113,8 @@ function main(){
       data = json.results[i];
       rows.push([data['total_confirmado'], data['createdAt'], data['updatedAt'], data['total_obitos'], data['dt_atualizacao'], data['total_letalidade'].slice(0,-1)]);
     }
-    
-    dataRange = sheet.getRange(2, 1, rows.length, 6);
-    dataRange.setValues(rows);
-      
+    var dataRange = sheet.getRange(2, 1, rows.length, 6);
+    var dataRange.setValues(rows);  
   }
    // Função que raspa os dados da requisição PortalMapa     
    function scrapeMapa() {
@@ -138,10 +128,8 @@ function main(){
       data = json.results[i];
       rows.push([data['nome'], data['qtd_confirmado'], data['latitude'], data['longitude'], data['createdAt'], data['updatedAt']]);
     }
-    
-    dataRange = sheet.getRange(lastRow+1, 1, rows.length, 6);
-    dataRange.setValues(rows);
-      
+    var dataRange = sheet.getRange(lastRow+1, 1, rows.length, 6);
+    var dataRange.setValues(rows);  
   }
   // Executa as funções, uma a uma
   scrapeDias();
