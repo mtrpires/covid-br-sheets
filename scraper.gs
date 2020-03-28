@@ -1,5 +1,7 @@
-base_url = "https://xx9p7hp1p7.execute-api.us-east-1.amazonaws.com/prod/";
+// Guarda um pedaço da URL de requisição na variável base_url
+var base_url = "https://xx9p7hp1p7.execute-api.us-east-1.amazonaws.com/prod/";
 
+// Guarda o nome de cada pasta na planilha
 var sheet_dias = "Dias";
 var sheet_acumulo = "Acumulo";
 var sheet_semana = "Semana";
@@ -7,6 +9,7 @@ var sheet_regiao = "Regiao";
 var sheet_geral = "Geral";
 var sheet_mapa = "Mapa";
 
+// Guarda parâmetros da requisição na variável fetch_payload
 var fetch_payload = {
   "credentials":"omit","headers":{
     "accept":"application/json, text/plain, */*",
@@ -23,6 +26,9 @@ var fetch_payload = {
   "mode":"cors"
 }
 
+// Cria função para verificar se os dados foram atualizados no site
+// Caso os dados não tenham sido atualizados, nada é feito
+// Caso os dados tenham sido atualizados, executa a função 'main'
 function isUpdated() {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheet_geral);
   var request = UrlFetchApp.fetch(base_url + "Portal" + sheet_geral, fetch_payload).getContentText();
@@ -37,8 +43,9 @@ function isUpdated() {
     }
   }
 
+// Função guarda-chuva
 function main(){
-  
+  // Função que raspa os dados da requisição PortalDias
   function scrapeDias() {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheet_dias);
     var request = UrlFetchApp.fetch(base_url + "Portal" + sheet_dias, fetch_payload).getContentText();
@@ -54,7 +61,7 @@ function main(){
     dataRange.setValues(rows);
       
   }
-  
+  // Função que raspa os dados da requisição PortalAcumulo
   function scrapeAcumulo() {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheet_acumulo);
     var request = UrlFetchApp.fetch(base_url + "Portal" + sheet_acumulo, fetch_payload).getContentText();
@@ -70,7 +77,7 @@ function main(){
     dataRange.setValues(rows);
       
   }
-  
+  // Função que raspa os dados da requisição PortalSemana
   function scrapeSemana() {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheet_semana);
     var request = UrlFetchApp.fetch(base_url + "Portal" + sheet_semana, fetch_payload).getContentText();
@@ -86,7 +93,7 @@ function main(){
     dataRange.setValues(rows);
       
   }
-  
+  // Função que raspa os dados da requisição PortalRegiao
   function scrapeRegiao() {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheet_regiao);
     var request = UrlFetchApp.fetch(base_url + "Portal" + sheet_regiao, fetch_payload).getContentText();
@@ -103,7 +110,7 @@ function main(){
     dataRange.setValues(rows);
       
   };
-  
+  // Função que raspa os dados da requisição PortalGeral
   function scrapeGeral() {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheet_geral);
     var request = UrlFetchApp.fetch(base_url + "Portal" + sheet_geral, fetch_payload).getContentText();
@@ -119,7 +126,7 @@ function main(){
     dataRange.setValues(rows);
       
   }
-        
+   // Função que raspa os dados da requisição PortalMapa     
    function scrapeMapa() {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheet_mapa);
     var request = UrlFetchApp.fetch(base_url + "Portal" + sheet_mapa, fetch_payload).getContentText();
@@ -136,11 +143,13 @@ function main(){
     dataRange.setValues(rows);
       
   }
+  // Executa as funções, uma a uma
   scrapeDias();
   scrapeAcumulo();
   scrapeSemana();
   scrapeRegiao();
   scrapeGeral();
   scrapeMapa();
+  // Guarda a confirmação da execução no log
   Logger.log('Data updated successfully');
 }
