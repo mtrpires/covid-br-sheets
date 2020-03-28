@@ -61,7 +61,7 @@ Clique com o botão direito em `PortalAcumulo` e selecione `Copy -> Copy as fetc
     "mode":"cors"
     });
 ```
-Esse comando baixa os dados de cada requisição. Você pode aprender um pouco mais sobre o assunto lendo sobre o [protocolo HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP). O processo é semelhante em cada etapa, então vamos focar em uma requisição e o mesmo princípio pode ser aplicado nas outras. **Guarde esse comando**, vamos precisar dele mais tarde.
+Esse comando usa uma função javascript (`fetch`) para baixar os dados de cada requisição. É possível carregar essa função no Google Sheets para baixar os dados. Você pode aprender um pouco mais sobre o assunto lendo sobre o [protocolo HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP). O processo é semelhante em cada etapa, então vamos focar em uma requisição e o mesmo princípio pode ser aplicado nas outras. **Guarde esse comando**, vamos precisar dele mais tarde.
 
  ### Google Sheets
  Crie uma planilha em branco no **Google Sheets** (basta digitar [`sheet.new`](https://sheet.new) no navegador). Você vai precisar de uma conta Google (corporativa ou pessoal). Caso prefira, basta criar uma para esse projeto.
