@@ -45,6 +45,27 @@ function isUpdated() {
 
 // Função guarda-chuva
 function main(){
+  // Cria função que remove linhas duplicadas
+  function removeDuplicates(sheet) {
+    var table = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = table.getSheetByName(sheet);
+    var data = sheet.getDataRange().getValues();
+    var newData = [];
+    for (var i in data) {
+      var row = data[i];
+      var duplicate = false;
+      for (var j in newData) {
+        if (row.join() == newData[j].join()) {
+          duplicate = true;
+        }
+      }
+      if (!duplicate) {
+        newData.push(row);
+      }
+    }
+    sheet.clearContents();
+    sheet.getRange(1, 1, newData.length, newData[0].length).setValues(newData);
+  }
   // Função que raspa os dados da requisição PortalDias
   function scrapeDias() {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheet_dias);
@@ -97,7 +118,7 @@ function main(){
     var lastRow = sheet.getLastRow();
     for (i = 0; i < json.results.length; i++) {
       data = json.results[i];
-      rows.push([data['nome'], data['percent'], data['qtd'], data['createdAt'], data['updatedAt']]);
+      rows.push([data['nome'], data['percent'].slice(0,-1), data['qtd'], data['createdAt'], data['updatedAt']]);
     }
     var dataRange = sheet.getRange(lastRow+1, 1, rows.length, 5);
     dataRange.setValues(rows);  
@@ -138,6 +159,8 @@ function main(){
   scrapeRegiao();
   scrapeGeral();
   scrapeMapa();
+  removeDuplicates(sheet_mapa);
+  removeDuplicates(sheet_regiao);
   // Guarda a confirmação da execução no log
   Logger.log('Data updated successfully');
 }
