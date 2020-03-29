@@ -3,7 +3,7 @@ Uma [planilha Google](https://docs.google.com/spreadsheets/d/1vSxIPmqUbYTyLLM4eN
 
 O governo brasileiro lançou um painel de controle com os dados sobre a COVID-19 no Brasil no dia 25 de março. Infelizmente, não existia uma opção para baixar os dados brutos. Esse projeto corrige essa falha.
 
-Para acessar a planilha [clique aqui](https://docs.google.com/spreadsheets/d/1vSxIPmqUbYTyLLM4eNddfU6CT2loAcWVQ0NX-gItceU/edit#gid=0). Os dados são atualizados assim que uma alteração é feita no site do Ministério da Saúde.
+Para acessar a planilha [clique aqui](https://docs.google.com/spreadsheets/d/1vSxIPmqUbYTyLLM4eNddfU6CT2loAcWVQ0NX-gItceU/edit#gid=0). Os dados são atualizados automaticamente até meia hora depois que uma alteração é registrada no site do Ministério da Saúde.
 
 Para acessar o script que alimenta a planilha você deve fazer uma cópia (`Arquivo -> Fazer cópia`) e acessar o editor de scripts (`Ferramentas -> Editor de script`).
 
