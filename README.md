@@ -1,7 +1,7 @@
 # covid-br-sheets
 Uma [planilha Google](https://docs.google.com/spreadsheets/d/1vSxIPmqUbYTyLLM4eNddfU6CT2loAcWVQ0NX-gItceU/edit#gid=0) que raspa e armazena os dados em [covid.saude.gov.br](https://covid.saude.gov.br).
 
-O governo brasileiro lançou um painel de controle com os dados sobre a COVID-19 no Brasil no dia 26 de março. Infelizmente, não existia uma opção para baixar os dados brutos. Esse projeto corrige essa falha.
+O governo brasileiro lançou um painel de controle com os dados sobre a COVID-19 no Brasil no dia 25 de março. Infelizmente, não existia uma opção para baixar os dados brutos. Esse projeto corrige essa falha.
 
 Para acessar a planilha [clique aqui](https://docs.google.com/spreadsheets/d/1vSxIPmqUbYTyLLM4eNddfU6CT2loAcWVQ0NX-gItceU/edit#gid=0). Os dados são atualizados assim que uma alteração é feita no site do Ministério da Saúde.
 
