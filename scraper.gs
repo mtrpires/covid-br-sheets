@@ -1,3 +1,18 @@
+/* 
+
+@mtrpires 
+gihub.com/mtrpires
+
+Planilha do Google Sheet que raspa os dados de covid.saude.gov.br e disponibiliza
+em formato legível por máquina. As atualizações são feitas automaticamente usando
+o sistema de tarefas agendadas do Google. Aprenda como usar esse script em: 
+
+github.com/mtrpires/covid-br-sheets/
+
+Sugestões, críticas & pull requests são bem-vindos; abra uma issue no Gihub!
+
+*/ 
+
 // Guarda um pedaço da URL de requisição na variável base_url
 var base_url = "https://xx9p7hp1p7.execute-api.us-east-1.amazonaws.com/prod/";
 
@@ -26,9 +41,11 @@ var fetch_payload = {
   "mode":"cors"
 }
 
-// Cria função para verificar se os dados foram atualizados no site
-// Caso os dados não tenham sido atualizados, nada é feito
-// Caso os dados tenham sido atualizados, executa a função 'main'
+/* 
+ Cria função para verificar se os dados foram atualizados no site
+ Caso os dados não tenham sido atualizados, nada é feito
+ Caso os dados tenham sido atualizados, executa a função 'main'
+*/
 function isUpdated() {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheet_geral);
   var request = UrlFetchApp.fetch(base_url + "Portal" + sheet_geral, fetch_payload).getContentText();
