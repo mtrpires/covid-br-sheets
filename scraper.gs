@@ -54,7 +54,7 @@ function isUpdated() {
   var dt_live = json.results[0]['dt_atualizacao'];
   var dt_current = sheet.getRange('E2').getValue();
   if (dt_live == dt_current) {
-    Logger.log('Data not updated. Spreadsheet data is up to date.'); 
+    Logger.log('Spreadsheet data is already up to date.'); 
   }
     else {
       main();
