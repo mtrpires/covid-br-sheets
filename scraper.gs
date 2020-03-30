@@ -1,7 +1,8 @@
 /* 
 
 @mtrpires 
-gihub.com/mtrpires
+github.com/mtrpires
+twitter.com/mtrpires
 
 Planilha do Google Sheets que raspa os dados de covid.saude.gov.br e disponibiliza
 em formato legível por máquina. As atualizações são feitas automaticamente usando
