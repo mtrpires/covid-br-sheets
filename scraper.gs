@@ -3,7 +3,7 @@
 @mtrpires 
 gihub.com/mtrpires
 
-Planilha do Google Sheet que raspa os dados de covid.saude.gov.br e disponibiliza
+Planilha do Google Sheets que raspa os dados de covid.saude.gov.br e disponibiliza
 em formato legível por máquina. As atualizações são feitas automaticamente usando
 o sistema de tarefas agendadas do Google. Aprenda como usar esse script em: 
 
