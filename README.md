@@ -19,7 +19,7 @@ Um resumo do que queremos fazer:
  - Fazer tudo isso automaticamente
 
 ### Onde estão os dados?
-Acesse covid.saude.gov.br e abra as ferramentas de desenvolvedor. Qualquer navegador moderno possui opções parecidas. Para esse projeto, eu usei as do [Chrome](https://www.google.com/chrome/). Basta clicar com o botão direito em qualquer parte do site e escolher "`inspecionar`".
+Acesse [covid.saude.gov.br](https://covid.saude.gov.br) e abra as ferramentas de desenvolvedor. Qualquer navegador moderno possui opções parecidas. Para esse projeto, eu usei as do [Chrome](https://www.google.com/chrome/). Basta clicar com o botão direito em qualquer parte do site e escolher "`inspecionar`".
 
 ![](images/screenshot1.png)
 
