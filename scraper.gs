@@ -10,7 +10,7 @@ o sistema de tarefas agendadas do Google. Aprenda como usar esse script em:
 
 github.com/mtrpires/covid-br-sheets/
 
-Sugestões, críticas & pull requests são bem-vindos; abra uma issue no Gihub!
+Sugestões, críticas & pull requests são bem-vindos; abra uma issue no Github!
 
 */ 
 
