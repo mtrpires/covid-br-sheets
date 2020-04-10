@@ -10,7 +10,7 @@ o sistema de tarefas agendadas do Google. Aprenda como usar esse script em:
 
 github.com/mtrpires/covid-br-sheets/
 
-Sugestões, críticas & pull requests são bem-vindos; abra uma issue no Github!
+Sugestões, críticas & pull requests são bem-vindos; abra uma issue!
 
 */ 
 
@@ -107,7 +107,8 @@ function main(){
         data;
     for (i = 0; i < json.results.length; i++) {
       data = json.results[i];
-      rows.push([data['label'], data['createdAt'], data['updatedAt'], data['qtd_confirmado'], data['qtd_obito']]);
+      var taxa_letalidade = parseFloat(data['qtd_obito'])/parseFloat(data['qtd_confirmado']);
+      rows.push([data['label'], data['createdAt'], data['updatedAt'], data['qtd_confirmado'], data['qtd_obito'], taxa_letalidade]);
     }
     var dataRange = sheet.getRange(2, 1, rows.length, 5);
     dataRange.setValues(rows);    
