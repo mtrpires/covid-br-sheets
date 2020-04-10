@@ -10,7 +10,7 @@ o sistema de tarefas agendadas do Google. Aprenda como usar esse script em:
 
 github.com/mtrpires/covid-br-sheets/
 
-Sugestões, críticas & pull requests são bem-vindos; abra uma issue!
+Sugestões, críticas & pull requests são bem-vindos; abra uma issue no Github!
 
 */ 
 
@@ -63,6 +63,54 @@ function isUpdated() {
 
 // Função guarda-chuva
 function main(){
+  
+  // Verifica se as pastas foram criadas manualmente, caso contrário, cria-as
+  function sheetCheck() {
+    var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+    var dias = spreadsheet.getSheetByName(sheet_dias);
+    var acumulo = spreadsheet.getSheetByName(sheet_acumulo);
+    var semana = spreadsheet.getSheetByName(sheet_semana);
+    var regiao = spreadsheet.getSheetByName(sheet_regiao);
+    var geral = spreadsheet.getSheetByName(sheet_geral);
+    var mapa = spreadsheet.getSheetByName(sheet_mapa);
+
+    if (dias == null) {
+      dias = spreadsheet.insertSheet();
+      dias.setName(sheet_dias);
+      var rowData = ['data', 'created_at', 'updated_at', 'qtd_confirmado', 'qtd_obito'];
+      dias.insertRowBefore(1).getRange(1, 1, 1, rowData.length).setValues([rowData]);
+    }
+    if (acumulo == null) {
+      acumulo = spreadsheet.insertSheet();
+      acumulo.setName(sheet_acumulo);
+      var rowData = ['data', 'created_at', 'updated_at', 'qtd_confirmado', 'qtd_obito', 'taxa_letalidade'];
+      acumulo.insertRowBefore(1).getRange(1, 1, 1, rowData.length).setValues([rowData]);
+    }
+    if (semana == null) {
+      semana = spreadsheet.insertSheet();
+      semana.setName(sheet_semana); 
+      var rowData = ['semana_epidemiologica', 'created_at', 'updated_at', 'qtd_confirmado', 'qtd_obito'];
+      semana.insertRowBefore(1).getRange(1, 1, 1, rowData.length).setValues([rowData]);
+    }
+    if (regiao == null) {
+      regiao = spreadsheet.insertSheet();
+      regiao.setName(sheet_regiao);
+      var rowData = ['regiao', 'percent', 'qtd', 'createdAt', 'updatedAt'];
+      regiao.insertRowBefore(1).getRange(1, 1, 1, rowData.length).setValues([rowData]);
+    }
+    if (geral == null) {
+      geral = spreadsheet.insertSheet();
+      geral.setName(sheet_geral);
+      var rowData = ['total_confirmado', 'created_at', 'updated_at', 'total_obitos', 'dt_atualização', 'total_letalidade'];
+      geral.insertRowBefore(1).getRange(1, 1, 1, rowData.length).setValues([rowData]);
+    }
+    if (mapa == null) {
+      mapa = spreadsheet.insertSheet();
+      mapa.setName(sheet_mapa);
+      var rowData = ['estado', 'qtd', 'latitude', 'longitude', 'createdAt', 'updatedAte'];
+      mapa.insertRowBefore(1).getRange(1, 1, 1, rowData.length).setValues([rowData]);
+    }
+}
   // Cria função que remove linhas duplicadas
   function removeDuplicates(sheet) {
     var table = SpreadsheetApp.getActiveSpreadsheet();
@@ -110,7 +158,7 @@ function main(){
       var taxa_letalidade = parseFloat(data['qtd_obito'])/parseFloat(data['qtd_confirmado']);
       rows.push([data['label'], data['createdAt'], data['updatedAt'], data['qtd_confirmado'], data['qtd_obito'], taxa_letalidade]);
     }
-    var dataRange = sheet.getRange(2, 1, rows.length, 5);
+    var dataRange = sheet.getRange(2, 1, rows.length, 6);
     dataRange.setValues(rows);    
   }
   // Função que raspa os dados da requisição PortalSemana
@@ -172,6 +220,7 @@ function main(){
     dataRange.setValues(rows);  
   }
   // Executa as funções, uma a uma
+  sheetCheck();
   scrapeDias();
   scrapeAcumulo();
   scrapeSemana();
