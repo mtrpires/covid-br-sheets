@@ -1,4 +1,7 @@
+## Atenção: esse script foi superado pelo próprio governo (que passou a publicar o CVS com os dados), e diversos outros projetos que fazem a coleta sistemática das informações e as disponibilizam em formato aberto, como o Brasil.IO. O script talvez sirva como instrumento pedagógico no aprendizado de raspagem via Google Sheets.
+
 # covid-br-sheets
+
 Uma [planilha Google](https://docs.google.com/spreadsheets/d/1vSxIPmqUbYTyLLM4eNddfU6CT2loAcWVQ0NX-gItceU/edit#gid=0) que raspa e armazena os dados em [covid.saude.gov.br](https://covid.saude.gov.br).
 
 O governo brasileiro lançou um painel de controle com os dados sobre a COVID-19 no Brasil no dia 25 de março. Infelizmente, não existia uma opção para baixar os dados brutos. Esse projeto corrige essa falha.
